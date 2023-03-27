@@ -15,11 +15,11 @@ public:
 };
 
 // Alternative solution
-class Solution {
-public:
-    // Check size of array is larger than constructed set
-    bool containsDuplicate(vector<int>& nums) {
-        return nums.size() > std::unordered_set<int>(nums.begin(), nums.end()).size();
-    }
-};
+// class Solution {
+// public:
+//     // Check size of array is larger than constructed set
+//     bool containsDuplicate(vector<int>& nums) {
+//         return nums.size() > std::unordered_set<int>(nums.begin(), nums.end()).size();
+//     }
+// };
 
