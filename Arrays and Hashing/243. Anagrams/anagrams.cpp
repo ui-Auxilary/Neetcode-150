@@ -13,19 +13,22 @@ public:
 };
 
 // 2. Alternative Solution
+// hashmap solution, similar to neetcode python implementation
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        unordered_map<char, int> m;
-        auto len = s.size();
-        if (len != t.size()) return false;
-        for (auto i = 0u; i < len; i++) {
-            if (m.find(s[i] - 'a') == m.end()) m[s[i]]++;
-            if (m.find(t[i] - 'a') == m.end()) m[t[i]]--;
+        if(s.size() != t.size()) return false;
+        
+        unordered_map<char,int> smap;
+        unordered_map<char,int> tmap;
+        
+        for(int i = 0; i < s.size(); i++){
+            smap[s[i]]++;
+            tmap[t[i]]++;
         }
-
-        for (auto &[k, v] : m) {
-            if (v != 0) return false;
+        
+        for(int i = 0; i < smap.size(); i++){
+            if(smap[i] != tmap[i]) return false;
         }
         return true;
     }
